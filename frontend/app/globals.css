@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  
+  --primary-50: #f0f4ff;
+  --primary-100: #e0e9ff;
+  --primary-200: #c7d6ff;
+  --primary-300: #a3b8ff;
+  --primary-400: #7c95ff;
+  --primary-500: #5970ff;
+  --primary-600: #1e40af;  /* Main brand */
+  --primary-700: #1e3a8a;
+  --primary-800: #1e3a8a;
+  --primary-900: #1e293b;
+
+  
+  --gold-50: #fffcf0;
+  --gold-100: #fff8e1;
+  --gold-200: #ffecb3;
+  --gold-300: #ffe082;
+  --gold-400: #ffd54f;
+  --gold-500: #ffcc02;  
+  --gold-600: #f9a825;
+  --gold-700: #f57c00;
+
+  
+  --red-500: #dc2626;
+  --red-600: #c53030;  
+  --red-700: #b91c1c;
+
+  /* Professional Background */
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 248, 250, 252;
+    --background-start-rgb: 15, 23, 42;
+    --background-end-rgb: 30, 41, 59;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      135deg,
+      rgb(var(--background-start-rgb)) 0%,
+      rgb(var(--background-end-rgb)) 100%
+    );
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Professional Button System */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-50 text-blue-600 font-semibold py-3 px-6 rounded-lg border-2 border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5;
+}
+
+.btn-success {
+  @apply bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
+.btn-warning {
+  @apply bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
+.btn-danger {
+  @apply bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
+/* Professional Card System */
+.card {
+  @apply bg-white rounded-xl border-l-4 border-l-blue-600 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-600), #ffcc02, #c53030);
+}
+
+.card-header {
+  @apply pb-4 mb-4 border-b border-gray-100;
+}
+
+.card-title {
+  @apply text-xl font-bold text-gray-900 mb-2;
+}
+
+.card-subtitle {
+  @apply text-sm font-medium text-gray-500 uppercase tracking-wide;
+}
+
+/* Professional Input System */
+.input-field {
+  @apply w-full px-4 py-3 text-gray-900 bg-white border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200;
+}
+
+.input-label {
+  @apply block text-sm font-semibold text-gray-700 mb-2 tracking-wide;
+}
+
+/* Professional Status Badges */
+.badge {
+  @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full;
+}
+
+.badge-success {
+  @apply bg-green-500 text-white shadow-md;
+}
+
+.badge-warning {
+  @apply bg-yellow-500 text-white shadow-md;
+}
+
+.badge-danger {
+  @apply bg-red-500 text-white shadow-md;
+}
+
+.badge-info {
+  @apply bg-blue-500 text-white shadow-md;
+}
+
+.badge-neutral {
+  @apply bg-gray-100 text-gray-700 border border-gray-200;
+}
+
+/* Professional Typography */
+.text-display-xl {
+  @apply text-6xl font-black text-gray-900 leading-none tracking-tight;
+}
+
+.text-display-lg {
+  @apply text-5xl font-black text-gray-900 leading-tight tracking-tight;
+}
+
+.text-display-md {
+  @apply text-4xl font-bold text-gray-900 leading-tight tracking-tight;
+}
+
+.text-heading-xl {
+  @apply text-3xl font-bold text-gray-900 leading-tight tracking-tight;
+}
+
+.text-heading-lg {
+  @apply text-2xl font-bold text-gray-900 leading-tight;
+}
+
+.text-heading-md {
+  @apply text-xl font-semibold text-gray-900 leading-tight;
+}
+
+/* Professional Animations */
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Professional Navigation Links */
+.nav-link {
+  @apply flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg border border-transparent hover:border-blue-200 transition-all duration-200;
+}
+
+.nav-link.active {
+  @apply bg-blue-50 text-blue-700 border-blue-200;
+}
